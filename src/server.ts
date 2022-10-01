@@ -6,7 +6,7 @@ import Logging from "./library/Loggin"
 const router = express()
 
 /**constorllers */
-
+const client_proposal_controller = require("./controllers/client_proposal_controller")
 
 
 const db_url = "mongodb+srv://root:071656Ad@cluster0.zekgg7g.mongodb.net/test"
@@ -54,7 +54,7 @@ const StartServer = () => {
    });
 
    /** Routes */
-   
+   router.use("/client-praposal-controller",client_proposal_controller)
 
    /** Healthcheck */
    router.get('/ping', (req, res, next) => res.status(200).json({ hello: 'world' }));
