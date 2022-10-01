@@ -6,8 +6,8 @@ import Logging from "./library/Loggin"
 const router = express()
 
 /**constorllers */
-
-
+const auth_controller = require("./controllers/auth_controller")
+const customer_controller = require("./controllers/customer_controller")
 
 const db_url = "mongodb+srv://root:071656Ad@cluster0.zekgg7g.mongodb.net/test"
 const port = 8080
@@ -54,8 +54,8 @@ const StartServer = () => {
    });
 
    /** Routes */
-   
-
+   router.use("/auth",auth_controller)
+   router.use("/customer-controller",customer_controller)
    /** Healthcheck */
    router.get('/ping', (req, res, next) => res.status(200).json({ hello: 'world' }));
 
